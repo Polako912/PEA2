@@ -1,0 +1,6 @@
+﻿  SimulatedAnnealing.cpp
+c:\users\asus\documents\visual studio 2017\projects\pea2\pea2\simulatedannealing.cpp(12): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+c:\users\asus\documents\visual studio 2017\projects\pea2\pea2\simulatedannealing.cpp(40): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\asus\documents\visual studio 2017\projects\pea2\pea2\simulatedannealing.cpp(78): warning C4018: '<': signed/unsigned mismatch
+c:\users\asus\documents\visual studio 2017\projects\pea2\pea2\simulatedannealing.cpp(92): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  PEA2.vcxproj -> C:\Users\asus\Documents\Visual Studio 2017\Projects\PEA2\Debug\PEA2.exe
