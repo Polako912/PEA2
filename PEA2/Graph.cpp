@@ -9,6 +9,8 @@
 Graph::Graph()
 {
 	vertex = 0;
+	minDistance = INT_MAX;
+	maxDistance = 0;
 }
 
 Graph::~Graph()
@@ -70,6 +72,7 @@ void Graph::ReadAtspFile(std::string filename, int number)
 		}
 
 		int temp = 0;
+		
 
 		while(true)
 		{
@@ -89,6 +92,19 @@ void Graph::ReadAtspFile(std::string filename, int number)
 							if(i == temp)
 							{
 								graphData[temp][i] = -1;
+							}
+							else
+							{
+								if (graphData[temp][i] < minDistance)
+								{
+									minDistance = graphData[temp][i];
+									setMinDistance(minDistance);
+								}
+								if (graphData[temp][i] > maxDistance)
+								{
+									maxDistance = graphData[temp][i];
+									setMaxDistance(maxDistance);
+								}
 							}
 						}
 					}
@@ -147,4 +163,24 @@ void Graph::ReadFromFile(std::string filename)
 
 	}
 	file.close();
+}
+
+int Graph::getMaxDistance()
+{
+	return maxDistance;
+}
+
+void Graph::setMaxDistance(int number)
+{
+	maxDistance = number;
+}
+
+int Graph::getMinDistance()
+{
+	return minDistance;
+}
+
+void Graph::setMinDistance(int number)
+{
+	minDistance = number;
 }

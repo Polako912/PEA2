@@ -13,10 +13,11 @@ private:
 public:
 	SimulatedAnnealing();
 	~SimulatedAnnealing();
-	void SimAnnealing(int startCost, std::vector<int> startPath, double selectedTime);
+	void SimAnnealing(int startCost, std::vector<int> startPath);
 	std::vector<int> ShuffleVertices(std::vector<int> vector);
 	int CalculateCost(std::vector<int> vector);
 	int CalculateProbability(int newCost, int oldCost, double temperature);
+	int CalculateTemperature();
 	void DisplayCost();
 	void DispalyPath();
 	void DisplayProperties(double coolingCoefficient);

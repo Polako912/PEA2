@@ -20,12 +20,12 @@ SimulatedAnnealing::~SimulatedAnnealing()
 	minCost = INT_MAX;
 }
 
-void SimulatedAnnealing::SimAnnealing(int maxTime, std::vector<int> startPath, double selectedTime)
+void SimulatedAnnealing::SimAnnealing(int maxTime, std::vector<int> startPath)
 {
 	clock_t start, end;
 	start = clock();
 	std::vector<int> tempVector = startPath;
-	double temperature = this->startTemperature;
+	double temperature = CalculateTemperature();
 	int minCurrentCost = CalculateCost(tempVector);
 
 	do
@@ -48,22 +48,16 @@ void SimulatedAnnealing::SimAnnealing(int maxTime, std::vector<int> startPath, d
 		}
 		static_cast<double>(temperature = temperature * getCooling());
 		end = clock();
-	} while (getTime(end, start) <= selectedTime && temperature >= 0.001);
+	} while (getTime(end, start) <= maxTime);
 
 	path = tempVector;
 	minCost = minCurrentCost;
 
 	std::cout << std::endl;
-	if (getTime(end, start) <= selectedTime)
-	{
-		std::cout << "Czas wykoania:" << std::endl;
-		std::cout << maxTime - selectedTime << "s" << std::endl;
-	}
-	else
-	{
-		std::cout << "Czas wykoania:" << std::endl;
-		std::cout << (double(end - start) / CLOCKS_PER_SEC) + selectedTime << "s" << std::endl;
-	}
+	
+	std::cout << "Czas wykoania:" << std::endl;
+	std::cout << maxTime<< "s" << std::endl;
+	
 }
 
 
@@ -109,6 +103,11 @@ int SimulatedAnnealing::CalculateProbability(int newCost, int oldCost, double te
 	return result;
 }
 
+int SimulatedAnnealing::CalculateTemperature()
+{
+	return abs((getMaxDistance() - getMinDistance()* this->vertex));
+}
+
 void SimulatedAnnealing::DisplayCost()
 {
 	std::cout << "Wartosc drogi:" << std::endl;
@@ -134,7 +133,7 @@ void SimulatedAnnealing::DispalyPath()
 void SimulatedAnnealing::DisplayProperties(double coolingCoefficient)
 {
 	std::cout << "Temperatura poczatkowa: " << std::endl;
-	std::cout << startTemperature << std::endl;
+	std::cout << CalculateTemperature() << std::endl;
 	std::cout << "Wspolczynnik chlodzenia: " << std::endl;
 	std::cout << static_cast<double>(coolingCoefficient) << std::endl;
 }

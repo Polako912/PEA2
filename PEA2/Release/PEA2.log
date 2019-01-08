@@ -1,14 +1,11 @@
-﻿  Menu.cpp
-c:\users\asus\documents\visual studio 2017\projects\pea2\pea2\menu.cpp(53): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-c:\users\asus\documents\visual studio 2017\projects\pea2\pea2\menu.cpp(63): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-  SimulatedAnnealing.cpp
-c:\users\asus\documents\visual studio 2017\projects\pea2\pea2\simulatedannealing.cpp(93): warning C4018: '<': signed/unsigned mismatch
-c:\users\asus\documents\visual studio 2017\projects\pea2\pea2\simulatedannealing.cpp(109): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
-c:\users\asus\documents\visual studio 2017\projects\pea2\pea2\simulatedannealing.cpp(122): warning C4018: '<': signed/unsigned mismatch
-c:\users\asus\documents\visual studio 2017\projects\pea2\pea2\simulatedannealing.cpp(149): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+﻿  SimulatedAnnealing.cpp
+c:\users\asus\documents\visual studio 2017\projects\pea2\pea2\simulatedannealing.cpp(87): warning C4018: '<': signed/unsigned mismatch
+c:\users\asus\documents\visual studio 2017\projects\pea2\pea2\simulatedannealing.cpp(103): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+c:\users\asus\documents\visual studio 2017\projects\pea2\pea2\simulatedannealing.cpp(121): warning C4018: '<': signed/unsigned mismatch
+c:\users\asus\documents\visual studio 2017\projects\pea2\pea2\simulatedannealing.cpp(148): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
   Generating code
-  3 of 737 functions ( 0.4%) were compiled, the rest were copied from previous compilation.
+  5 of 738 functions ( 0.7%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+    3 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   PEA2.vcxproj -> C:\Users\asus\Documents\Visual Studio 2017\Projects\PEA2\Release\PEA2.exe

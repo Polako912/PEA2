@@ -8,7 +8,6 @@
 
 Menu::Menu()
 {
-	graph = new Graph();
 	sa = new SimulatedAnnealing();
 	bb = new BnBForAnnealing();
 }
@@ -22,8 +21,6 @@ void Menu::menuMain() const
 	int choice = 0;
 	std::vector<int> tempPath;
 	double maxTime = 0;
-	double correctTime;
-	clock_t start, end;
 	double coolingCoefficient = 0;
 	std::string filename;
 
@@ -42,6 +39,8 @@ void Menu::menuMain() const
 		{
 		case 1:
 			ChooseFile();
+			bb->BranchnBound(0);
+			tempPath = bb->Path();
 			break;
 		case 2:
 			std::cout << "Podaj kryterium stopu: " << std::endl;
@@ -53,23 +52,10 @@ void Menu::menuMain() const
 			sa->setCooling(coolingCoefficient);
 			break;
 		case 4:
-			start = clock();
-			bb->BranchnBound(0);
-			tempPath = bb->Path();
-			end = clock();
-			if ((double(end - start) / CLOCKS_PER_SEC) < maxTime)
-			{
-				correctTime = maxTime - (double(end - start) / CLOCKS_PER_SEC);
-				sa->SimAnnealing(maxTime, tempPath, correctTime);
-				sa->DisplayCost();
-				sa->DispalyPath();
-				sa->DisplayProperties(coolingCoefficient);
-			}
-			else
-			{
-				std::cout << "Krtyerium stopu zostalo zlamane, wynik jest na podstawie algorytmu zachalannego" << std::endl;
-				bb->PrintPath();
-			}
+			sa->SimAnnealing(maxTime, tempPath);
+			sa->DisplayCost();
+			sa->DispalyPath();
+			sa->DisplayProperties(coolingCoefficient);
 			break;
 		case 5:
 			exit(EXIT_SUCCESS);
